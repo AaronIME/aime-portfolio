@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 10 10 10;
+    --surface: 18 18 18;
+    --surface-2: 26 26 26;
+    --border: 40 40 40;
+    --text-primary: 240 240 240;
+    --text-secondary: 160 160 160;
+    --accent: 99 102 241;
+    --accent-light: 129 140 248;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--text-primary));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}

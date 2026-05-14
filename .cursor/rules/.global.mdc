@@ -1,0 +1,113 @@
+---
+alwaysApply: true
+---
+
+## Responsive Design
+
+- All layouts must follow a **mobile-first approach**
+- Ensure full responsiveness across mobile, tablet, and desktop
+- Use consistent spacing and layout scaling with Tailwind utilities
+
+---
+
+## Tech Stack Rules
+
+- Use **shadcn/ui** for all UI components
+- Use **Tailwind CSS** for styling
+- Avoid inline styles unless strictly necessary
+- Prefer composition over customization when using UI components
+
+---
+
+## Design Requirements
+
+- The UI must look modern, polished, and production-ready
+- Avoid generic or "AI-generated" visual patterns
+- Ensure natural spacing, hierarchy, and visual rhythm
+- Use subtle design details (shadows, borders, hover states, spacing variations)
+- The result should feel like it was designed by an experienced human UI designer
+
+---
+
+## Project Context: Portfolio Website
+
+You are building a **developer portfolio website**.
+
+---
+
+## Required Sections
+
+### 1. Hero / Introduction
+- Display basic information about the developer
+- Include:
+  - Name
+  - Role / Title
+  - Short professional summary
+
+---
+
+### 2. Experience Section
+- Show experience with specific technologies
+- Include duration of experience per technology (e.g., React: 3 years, Node.js: 2 years)
+- Present data in a clear and structured UI such as:
+  - Cards
+  - Timeline
+  - Progress indicators (optional)
+
+---
+
+### 3. Projects / Work Section
+- Display a grid of project cards
+
+Each project card must include:
+- Preview image of the project
+- Short description
+- Link to live site or repository
+
+Requirements:
+- Cards must be consistent in layout
+- Fully responsive grid system
+- Clear visual hierarchy between image, title, and description
+
+---
+
+### 4. Courses & Certifications Section
+- Add a dedicated section for courses, certifications, and continuous learning
+- Showcase relevant courses related to frontend, backend, design, DevOps, or software engineering
+
+Each course card must include:
+- Course name
+- Brief description
+- Platform or institution
+- Link to the course
+
+---
+
+## Structure Rules
+
+- Each section of the website must live inside its own folder under `src/`
+- Pages must be placed inside `pages/`
+- Section-specific components must be placed inside `components/`
+- Layouts specific to a section must be placed inside `layouts/`
+- Shared/global components must live in `src/components/`
+- Never mix section-specific components with global components
+
+### Required Structure
+
+```txt
+src/
+ ├── landing/
+ │    ├── pages/
+ │    │    └── landing-page.tsx
+ │    ├── components/
+ │    │    ├── hero-section.tsx
+ │    │    ├── experience-section.tsx
+ │    │    ├── projects-section.tsx
+ │    │    └── project-card.tsx
+ │    └── layouts/
+ │         └── landing-layout.tsx
+ │
+ └── components/
+      ├── section-title.tsx
+      ├── container.tsx
+      └── ui/
