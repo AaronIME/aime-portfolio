@@ -40,7 +40,7 @@ const technologies: TechItem[] = [
   {
     name: 'React',
     years: 0.5,
-    level: 'advanced',
+    level: 'intermediate',
     icon: '⚛️',
     description: 'Hooks, component composition, state management, and building modern UIs.',
   },
