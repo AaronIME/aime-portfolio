@@ -1,132 +1,77 @@
-import { TechCard, type TechItem } from './TechCard'
-import { SectionLabel } from '../../components/SectionLabel'
+import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { motion, useInView, useReducedMotion } from "motion/react";
+import { SkillIndexRow } from "./SkillIndexRow";
+import { skillsContent, technologies } from "../constants/skills";
 
-const technologies: TechItem[] = [
-  {
-    name: 'Javascript',
-    years: 3,
-    level: 'advanced',
-    icon: '｡🇯‌🇸‌',
-    description: 'DOM manipulation, async patterns, ES modules, and building interactive web applications.',
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.08,
+    },
   },
-  {
-    name: 'TypeScript',
-    years: 0.5,
-    level: 'advanced',
-    icon: '🇹🇸',
-    description: 'Static typing over JavaScript, interfaces, generics, and improved code maintainability.',
-  },
-  {
-    name: 'Firebase',
-    years: 3,
-    level: 'advanced',
-    icon: '🔥',
-    description: 'Realtime Database, Firestore, Authentication, Hosting, and Cloud Functions.',
-  },
-  {
-    name: 'Node.js',
-    years: 3,
-    level: 'advanced',
-    icon: '🟢',
-    description: 'REST APIs, server-side logic, middleware, and backend integrations.',
-  },
-  {
-    name: 'Vue.js',
-    years: 3,
-    level: 'advanced',
-    icon: '✅',
-    description: 'Composition API, Pinia, Vue Router, and building reactive single-page applications.',
-  },
-  {
-    name: 'React',
-    years: 0.5,
-    level: 'intermediate',
-    icon: '⚛️',
-    description: 'Hooks, component composition, state management, and building modern UIs.',
-  },
-  {
-    name: 'SCSS',
-    years: 2,
-    level: 'intermediate',
-    icon: '🎨',
-    description: 'Variables, mixins, nesting, and structuring scalable stylesheet architectures.',
-  },
-  {
-    name: 'Bootstrap',
-    years: 2,
-    level: 'intermediate',
-    icon: '🅱️',
-    description: 'Responsive grid system, utility classes, and component-based UI development.',
-  },
-  {
-    name: 'Tailwind CSS',
-    years: 0.5,
-    level: 'intermediate',
-    icon: '🌀',
-    description: 'Utility-first styling, responsive design, and rapid UI prototyping.',
-  },
-  {
-    name: 'Github',
-    years: 3,
-    level: 'intermediate',
-    icon: '🐙',
-    description: 'Version control workflows, pull requests and branching strategies.',
-  },
-  {
-    name: 'Spring Boot',
-    years: 0.5,
-    level: 'intermediate',
-    icon: '🍃',
-    description: 'REST API development, dependency injection, and Java-based backend services.',
-  },
-  {
-    name: 'Angular',
-    years: 0.5,
-    level: 'intermediate',
-    icon: '🅰️',
-    description: 'Component architecture, services, RxJS observables, and Angular CLI tooling.',
-  },
-  {
-    name: 'MongoDB',
-    years: 0.5,
-    level: 'basic',
-    icon: '🍃',
-    description: 'Document-based data modeling, CRUD operations, and integration with Node.js.',
-  },
-  {
-    name: 'PostgreSQL',
-    years: 0.5,
-    level: 'basic',
-    icon: '🐘',
-    description: 'Relational schema design, basic queries, joins, and database management.',
-  },
-  {
-    name: 'Docker',
-    years: 1,
-    level: 'basic',
-    icon: '🐳',
-    description: 'Containerizing applications, writing Dockerfiles, and running local environments.',
-  },
-]
+};
 
 export const ExperienceSection = () => {
-  return (
-    <section className="w-full py-16 px-6 md:px-12 lg:px-20 max-w-5xl mx-auto">
-      <div className="mb-10">
-        <SectionLabel>Skills & Experience</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-          Technologies I work with
-        </h2>
-        <p className="mt-2 text-neutral-500 text-sm max-w-lg">
-          Hands-on experience building production systems across the full stack.
-        </p>
-      </div>
+  const { t } = useTranslation();
+  const listRef = useRef<HTMLOListElement>(null);
+  const reducedMotion = useReducedMotion() ?? false;
+  const isInView = useInView(listRef, { once: true, amount: 0.08 });
+  const [activeName, setActiveName] = useState<string | null>(null);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        {technologies.map((tech) => (
-          <TechCard key={tech.name} tech={tech} />
-        ))}
+  const { chapter } = skillsContent;
+
+  return (
+    <section
+      id="experience"
+      className="relative border-t border-line bg-paper px-5 py-20 sm:px-8 md:px-12 md:py-28 lg:px-16 lg:py-32 xl:px-20"
+      aria-labelledby="skills-heading"
+    >
+      <div className="mx-auto grid max-w-[90rem] gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
+        <header className="lg:sticky lg:top-24 lg:col-span-4">
+          <p className="font-mono text-[10px] tracking-[0.22em] text-blue-deep uppercase md:text-[11px]">
+            {chapter} / {t("skills.chapterLabel")}
+          </p>
+          <h2
+            id="skills-heading"
+            className="mt-4 font-display font-medium tracking-[-0.03em] text-ink text-[clamp(2.2rem,5vw,3.75rem)] leading-[0.94]"
+          >
+            {t("skills.title")}
+            <span className="block">{t("skills.titleLine")}</span>
+          </h2>
+          <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink-soft md:text-base">
+            {t("skills.introduction")}
+          </p>
+        </header>
+
+        <div className="lg:col-span-8">
+          <p className="mb-4 font-mono text-[10px] tracking-[0.22em] text-ink-muted uppercase">
+            {t("skills.indexLabel")}
+          </p>
+          <motion.ol
+            ref={listRef}
+            initial={reducedMotion ? "show" : "hidden"}
+            animate={reducedMotion || isInView ? "show" : "hidden"}
+            variants={listVariants}
+            onMouseLeave={() => setActiveName(null)}
+            className="border-t border-line"
+          >
+            {technologies.map((tech, index) => (
+              <SkillIndexRow
+                key={tech.name}
+                index={index}
+                tech={tech}
+                isActive={activeName === tech.name}
+                shouldAnimate={isInView && !reducedMotion}
+                reducedMotion={reducedMotion}
+                onEnter={() => setActiveName(tech.name)}
+              />
+            ))}
+          </motion.ol>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};

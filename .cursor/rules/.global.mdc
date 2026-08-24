@@ -1,113 +1,542 @@
 ---
+description: General development guidelines for this project
+globs:
 alwaysApply: true
 ---
 
-## Responsive Design
+# General Principles
 
-- All layouts must follow a **mobile-first approach**
-- Ensure full responsiveness across mobile, tablet, and desktop
-- Use consistent spacing and layout scaling with Tailwind utilities
-
----
-
-## Tech Stack Rules
-
-- Use **shadcn/ui** for all UI components
-- Use **Tailwind CSS** for styling
-- Avoid inline styles unless strictly necessary
-- Prefer composition over customization when using UI components
+- Prioritize readability over writing fewer lines of code.
+- Prefer simple, explicit and maintainable solutions over clever or overly abstract implementations.
+- Write code that another developer can understand immediately.
+- Follow Clean Code and SOLID principles when appropriate.
+- Favor maintainability over premature optimization.
+- Avoid unnecessary abstractions.
+- Avoid over-engineering.
+- Always choose the simplest solution that satisfies the current requirements.
 
 ---
 
-## Design Requirements
+# Mobile First
 
-- The UI must look modern, polished, and production-ready
-- Avoid generic or "AI-generated" visual patterns
-- Ensure natural spacing, hierarchy, and visual rhythm
-- Use subtle design details (shadows, borders, hover states, spacing variations)
-- The result should feel like it was designed by an experienced human UI designer
+Always develop using a **mobile-first** approach.
 
----
+The mobile experience is the highest priority.
 
-## Project Context: Portfolio Website
+Design and implement the mobile layout first, then progressively enhance it for:
 
-You are building a **developer portfolio website**.
+- Tablet
+- Desktop
 
----
+Every page and component must be responsive by default.
 
-## Required Sections
+Before considering a task complete, verify:
 
-### 1. Hero / Introduction
-- Display basic information about the developer
-- Include:
-  - Name
-  - Role / Title
-  - Short professional summary
+- Mobile
+- Tablet
+- Desktop
+
+Never build desktop first and adapt later.
 
 ---
 
-### 2. Experience Section
-- Show experience with specific technologies
-- Include duration of experience per technology (e.g., React: 3 years, Node.js: 2 years)
-- Present data in a clear and structured UI such as:
-  - Cards
-  - Timeline
-  - Progress indicators (optional)
+# Reusability
+
+Avoid duplicated code.
+
+Before creating new code, check whether an existing implementation can be reused.
+
+Prefer:
+
+- reusable utilities
+- reusable hooks
+- reusable functions
+
+instead of copying logic.
+
+Favor composition over duplication.
 
 ---
 
-### 3. Projects / Work Section
-- Display a grid of project cards
+# Project Structure
 
-Each project card must include:
-- Preview image of the project
-- Short description
-- Link to live site or repository
+The project follows a strict folder organization.
 
-Requirements:
-- Cards must be consistent in layout
-- Fully responsive grid system
-- Clear visual hierarchy between image, title, and description
+The **app** folder should only contain Next.js routing files.
+
+Allowed inside **app**:
+
+- page.tsx
+- layout.tsx
+- loading.tsx
+- error.tsx
+- not-found.tsx
+- route.ts
+- metadata files
+
+Do NOT place inside **app**:
+
+- Components
+- Hooks
+- Utils
+- Actions
+- Services
+- Constants
+- Interfaces
+- Types
+- Lib
+- Helpers
 
 ---
 
-### 4. Courses & Certifications Section
-- Add a dedicated section for courses, certifications, and continuous learning
-- Showcase relevant courses related to frontend, backend, design, DevOps, or software engineering
+The project structure should follow this pattern:
 
-Each course card must include:
-- Course name
-- Brief description
-- Platform or institution
-- Link to the course
+```
+app/
+
+home/
+    components/
+    hooks/
+    utils/
+
+about/
+    components/
+
+services/
+    components/
+
+contact/
+    components/
+
+shared/
+    components/
+    hooks/
+
+actions/
+
+utils/
+
+interfaces/
+
+types/
+
+constants/
+
+lib/
+```
+
+Each page has its own folder outside the **app** directory.
+
+Example:
+
+```
+home/
+    components/
+    hooks/
+    utils/
+```
+
+Only components reused across multiple pages belong inside:
+
+```
+shared/components
+```
+
+Never move a component to the shared folder prematurely.
 
 ---
 
-## Structure Rules
+# Components
 
-- Each section of the website must live inside its own folder under `src/`
-- Pages must be placed inside `pages/`
-- Section-specific components must be placed inside `components/`
-- Layouts specific to a section must be placed inside `layouts/`
-- Shared/global components must live in `src/components/`
-- Never mix section-specific components with global components
+Components should have a single responsibility.
 
-### Required Structure
+Keep components readable and focused.
 
-```txt
-src/
- ├── landing/
- │    ├── pages/
- │    │    └── landing-page.tsx
- │    ├── components/
- │    │    ├── hero-section.tsx
- │    │    ├── experience-section.tsx
- │    │    ├── projects-section.tsx
- │    │    └── project-card.tsx
- │    └── layouts/
- │         └── landing-layout.tsx
- │
- └── components/
-      ├── section-title.tsx
-      ├── container.tsx
-      └── ui/
+However:
+
+**Do NOT create a component for every section.**
+
+Only extract a component when:
+
+- It is reused multiple times.
+- It has its own logic.
+- It becomes too large.
+- Extracting it improves readability.
+- It exceeds roughly 200–250 lines.
+
+Avoid excessive fragmentation.
+
+Having too many tiny components makes navigation harder.
+
+Simple page sections can remain inside the page component.
+
+---
+
+# Component Naming
+
+Page-specific components should clearly indicate which page they belong to.
+
+Good examples:
+
+```
+HomeHero
+HomeServices
+HomeTestimonials
+HomeAbout
+
+AboutHero
+
+ServicesGrid
+ServicesCTA
+```
+
+Avoid generic names like:
+
+```
+Hero
+Section
+Content
+Wrapper
+Container
+```
+
+unless they truly belong to the shared folder.
+
+---
+
+# Barrel Files
+
+Always create barrel files (`index.ts`) inside folders that export multiple modules.
+
+Example:
+
+```
+components/
+    Button.tsx
+    Hero.tsx
+    Card.tsx
+    index.ts
+```
+
+```ts
+export * from "./Button";
+export * from "./Hero";
+export * from "./Card";
+```
+
+Always use barrel exports whenever possible.
+
+---
+
+# File Creation
+
+Do not create new files unless they provide a clear architectural benefit.
+
+Avoid unnecessary fragmentation.
+
+Before creating a file, evaluate whether the code belongs inside an existing module.
+
+Favor discoverability over excessive separation.
+
+---
+
+# TypeScript
+
+Always use TypeScript.
+
+Never use `any` unless absolutely unavoidable.
+
+Prefer:
+
+- interfaces
+- enums
+- utility types
+- generics
+
+Use explicit typing whenever possible.
+
+---
+
+# Interfaces
+
+Always define interfaces.
+
+When a component receives props:
+
+```tsx
+interface Props {
+    ...
+}
+
+export function Component({ ... }: Props) {}
+```
+
+Never inline prop types.
+
+Never use anonymous prop typing.
+
+Prefer interfaces over object type aliases.
+
+---
+
+# React
+
+Prefer functional components.
+
+Keep state as local as possible.
+
+Avoid unnecessary re-renders.
+
+Avoid deeply nested JSX.
+
+Extract complex logic into reusable hooks only when it improves readability.
+
+Prefer composition.
+
+---
+
+# useEffect
+
+Use `useEffect` ONLY when absolutely necessary.
+
+Never use useEffect for:
+
+- derived state
+- filtering
+- sorting
+- mapping
+- formatting
+- initializing constants
+- calculations
+- syncing props into state
+
+Instead prefer:
+
+- direct calculations
+- useMemo
+- useCallback
+- Server Components
+
+Every useEffect should have a clear justification.
+
+---
+
+# Next.js
+
+Prefer Server Components whenever possible.
+
+Only use Client Components when necessary.
+
+Minimize client-side JavaScript.
+
+Prefer:
+
+- Server Actions
+- Route Handlers
+- Metadata API
+- next/image
+- next/font
+- Dynamic Imports
+
+Follow App Router best practices.
+
+---
+
+# Styling
+
+This project uses:
+
+- Tailwind CSS
+- shadcn/ui
+
+Always use Tailwind utilities before writing custom CSS.
+
+Avoid inline styles.
+
+Avoid unnecessarily long className strings.
+
+When repeated Tailwind classes appear, extract reusable components or helper functions.
+
+Maintain a consistent spacing scale.
+
+---
+
+# Animations
+
+Use Motion for animations.
+
+Use Tailwind transitions for simple hover effects.
+
+Animations should:
+
+- improve UX
+- guide attention
+- reinforce hierarchy
+
+Avoid animations used only for decoration.
+
+Prefer:
+
+- opacity
+- transform
+- scale
+- translate
+
+Respect prefers-reduced-motion.
+
+---
+
+# Icons
+
+Use **react-icons** as the primary icon library.
+
+Import only the icons that are actually used.
+
+---
+
+# Imports
+
+Keep imports ordered.
+
+1. React
+2. Next.js
+3. Third-party libraries
+4. Shared components
+5. Page components
+6. Hooks
+7. Utils
+8. Actions
+9. Interfaces / Types
+10. Styles
+
+Prefer barrel exports.
+
+Avoid long relative import chains.
+
+---
+
+# Naming
+
+Use descriptive names.
+
+Avoid abbreviations.
+
+Bad:
+
+```
+btn
+cmp
+itm
+obj
+tmp
+```
+
+Good:
+
+```
+PrimaryButton
+ServiceCard
+selectedService
+testimonialList
+```
+
+---
+
+# Functions
+
+Functions should have a single responsibility.
+
+Prefer early returns.
+
+Avoid unnecessary else blocks.
+
+Keep nesting shallow.
+
+Extract helper functions when needed.
+
+Avoid functions longer than approximately 40 lines whenever possible.
+
+---
+
+# Design Philosophy
+
+This project aims for premium, handcrafted interfaces.
+
+Designs should never look like generic AI-generated templates.
+
+Every section should have a clear visual identity while remaining consistent with the overall design system.
+
+Prioritize:
+
+- Strong visual hierarchy
+- Editorial compositions
+- Generous whitespace
+- Premium typography
+- Elegant spacing
+- Subtle Motion animations
+- Purposeful asymmetry when appropriate
+- Carefully designed responsive layouts
+
+Avoid:
+
+- Generic grids
+- Repetitive card layouts
+- Cookie-cutter landing pages
+- Repeating the same section composition
+- Excessive shadows
+- Too many borders
+- Visual clutter
+- Overusing icons
+
+Every section should feel intentionally designed by a professional designer.
+
+---
+
+# Performance
+
+Minimize client-side JavaScript.
+
+Prefer Server Components.
+
+Lazy load when appropriate.
+
+Optimize images.
+
+Avoid unnecessary renders.
+
+Memoize only when it provides measurable benefits.
+
+Use transform and opacity for animations whenever possible.
+
+---
+
+# Reasoning
+
+When implementing a non-trivial solution, briefly explain why the chosen approach is better than simpler alternatives.
+
+Do not over-engineer.
+
+Prefer practical solutions over theoretical perfection.
+
+---
+
+# Code Quality Checklist
+
+Before finishing any implementation, verify:
+
+- The code is readable.
+- The solution is the simplest maintainable approach.
+- Mobile layout is complete.
+- Tablet layout is complete.
+- Desktop layout is complete.
+- No duplicated logic exists.
+- Components are reusable only when necessary.
+- Components are not over-fragmented.
+- Interfaces are used.
+- No unnecessary useEffect exists.
+- Folder structure follows project conventions.
+- Barrel exports exist where appropriate.
+- Imports are organized.
+- Component responsibilities are clear.
+- The design follows the premium design language.
+- Performance best practices have been considered.
