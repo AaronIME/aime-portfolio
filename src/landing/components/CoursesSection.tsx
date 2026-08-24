@@ -1,87 +1,107 @@
-import { CourseCard, type Course } from './CourseCard'
-import { SectionLabel } from '../../components/SectionLabel'
+import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { motion, useInView, useReducedMotion } from "motion/react";
+import { CourseIndexRow } from "./CourseIndexRow";
+import { courses, learningContent } from "../constants/learning";
 
-const courses: Course[] = [
-  {
-    name: 'NodeJS: De cero a experto',
-    description:
-      'Clean Architecture, DDD, WebHooks, WebSockets, Tareas automáticas, Despliegues, TypeScript, Edge, Testing y más',
-    platform: 'Udemy',
-    category: 'backend',
-    url: 'https://www.udemy.com/course/nodejs-de-cero-a-experto/',
-    gradient: 'bg-gradient-to-br from-sky-950 via-blue-950 to-indigo-950',
-    icon: '🟢',
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.16,
+    },
   },
-  {
-    name: "React: De cero a experto",
-    description:
-      'Context API, MERN, Hooks, Firestore, JWT, Testing, Autenticaciones, Despliegues, AI, CRUD, Logs, MUI, Multiple Routers..',
-    platform: 'Udemy',
-    category: 'frontend',
-    url: 'https://www.udemy.com/course/react-cero-experto/',
-    gradient: 'bg-gradient-to-br from-blue-950 via-indigo-950 to-violet-950',
-    icon: '⚛️',
-  },
-  {
-    name: 'Spring Framework & Spring Boot desde cero a experto',
-    description:
-      'Construye aplicaciones web Spring Framework y Spring Boot: AOP, JPA, Security, JWT, REST, AWS, Thymeleaf, Angular, React',
-    platform: 'Udemy',
-    category: 'backend',
-    url: 'https://www.udemy.com/course/spring-framework-5/',
-    gradient: 'bg-gradient-to-br from-emerald-950 via-teal-950 to-green-950',
-    icon: '🍃',
-  },
-  {
-    name: 'Angular: De cero a experto',
-    description:
-      'Signals, componentes, servicios, zoneless, mapas, autenticación, despliegues, carga de archivos, Git, GitHub y mucho más',
-    platform: 'Udemy',
-    category: 'frontend',
-    url: 'https://www.udemy.com/course/angular-fernando-herrera/',
-    gradient: 'bg-gradient-to-br from-pink-950 via-rose-950 to-fuchsia-950',
-    icon: '🅰',
-  },
-  {
-    name: 'Vue JS 3 + Nuxt 4 con Typescript - Curso Full-Stack + MEVN',
-    description:
-      'Aprende Vue.js 3 , Composition API, Option API, Vuex, Pinia, Rutas protegidas, Vue CLI, Nuxt.js, Node, Express y MongoDB',
-    platform: 'Udemy',
-    category: 'frontend',
-    url: 'https://www.udemy.com/course/curso-vue/',
-    gradient: 'bg-gradient-to-br from-amber-950 via-orange-950 to-yellow-950',
-    icon: '✅',
-  },
-  {
-    name: "CSS La Guía Completa - Flexbox, CSS Grid, SASS +20 proyectos",
-    description:
-      'Aprende Flexbox, CSS Grid, Custom Properties, SASS, Mixins, Gulp Workflows, Animaciones, RWD y mucho más!',
-    platform: 'Udemy',
-    category: 'design',
-    url: 'https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/',
-    gradient: 'bg-gradient-to-br from-cyan-950 via-teal-950 to-blue-950',
-    icon: '🎨',
-  }
-]
+};
 
 export const CoursesSection = () => {
-  return (
-    <section className="w-full py-16 px-6 md:px-12 lg:px-20 max-w-5xl mx-auto">
-      <div className="mb-10">
-        <SectionLabel>Learning</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-          Courses & certifications
-        </h2>
-        <p className="mt-2 text-neutral-500 text-sm max-w-lg">
-          Structured learning I've completed to sharpen my skills across the stack.
-        </p>
-      </div>
+  const { t } = useTranslation();
+  const listRef = useRef<HTMLOListElement>(null);
+  const reducedMotion = useReducedMotion() ?? false;
+  const isInView = useInView(listRef, { once: true, amount: 0.12 });
+  const [activeName, setActiveName] = useState<string | null>(null);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {courses.map((course) => (
-          <CourseCard key={course.name} course={course} />
-        ))}
+  const { chapter } = learningContent;
+
+  return (
+    <section
+      id="courses"
+      className="relative bg-paper px-5 py-20 sm:px-8 md:px-12 md:py-24 lg:px-16 lg:py-28 xl:px-20"
+      aria-labelledby="learning-heading"
+    >
+      <div className="mx-auto max-w-[90rem]">
+        <header className="mb-16 flex flex-col gap-8 md:mb-20 md:flex-row md:items-end md:justify-between">
+          <div className="md:order-2 md:text-right">
+            <motion.p
+              initial={reducedMotion ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease }}
+              className="font-mono text-[10px] tracking-[0.22em] text-blue-deep uppercase md:text-[11px]"
+            >
+              {chapter} / {t("learning.chapterLabel")}
+            </motion.p>
+            <motion.h2
+              id="learning-heading"
+              initial={reducedMotion ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.1, ease }}
+              className="mt-4 font-display font-medium tracking-[-0.03em] text-ink text-[clamp(1.85rem,4vw,3rem)] leading-[0.94]"
+            >
+              {t("learning.title")}
+              <span className="block">{t("learning.titleLine")}</span>
+            </motion.h2>
+          </div>
+
+          <motion.p
+            initial={reducedMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.16, ease }}
+            className="max-w-xs text-sm leading-relaxed text-ink-soft md:order-1 md:text-base"
+          >
+            {t("learning.introduction")}
+          </motion.p>
+        </header>
+
+        <div className="relative md:pl-8">
+          <span
+            aria-hidden="true"
+            className="absolute top-0 bottom-0 left-0 hidden w-px bg-line md:block"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute top-0 -left-1 hidden size-2 rounded-full bg-blue-deep md:block"
+          />
+
+          <p className="mb-6 font-mono text-[10px] tracking-[0.22em] text-ink-muted uppercase md:mb-8">
+            {t("learning.indexLabel")}
+          </p>
+
+          <motion.ol
+            ref={listRef}
+            initial={reducedMotion ? "show" : "hidden"}
+            animate={reducedMotion || isInView ? "show" : "hidden"}
+            variants={listVariants}
+            onMouseLeave={() => setActiveName(null)}
+            className="border-t border-line"
+          >
+            {courses.map((course, index) => (
+              <CourseIndexRow
+                key={course.name}
+                index={index}
+                course={course}
+                isActive={activeName === course.name}
+                reducedMotion={reducedMotion}
+                onEnter={() => setActiveName(course.name)}
+              />
+            ))}
+          </motion.ol>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};

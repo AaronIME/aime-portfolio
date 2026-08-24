@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "title": "Aarón Magallanes — Desarrollador web"
+  },
+  "nav": {
+    "brand": "AIME",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "courses": "Cursos",
+    "contact": "Escríbeme",
+    "language": "Idioma"
+  },
+  "hero": {
+    "ariaLabel": "Introducción",
+    "availability": "Disponible para trabajar",
+    "role": "Desarrollador web",
+    "specialty": "Ingeniero en Sistemas Computacionales",
+    "introduction": "Construyo experiencias web limpias y funcionales, de frontend a backend. Ahora profundizo en React y TypeScript, con Vue, Firebase y Node.js en producción.",
+    "contactLabel": "Escríbeme",
+    "portraitAlt": "Retrato de Aarón Magallanes",
+    "links": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Correo"
+    }
+  },
+  "skills": {
+    "chapterLabel": "Habilidades y experiencia",
+    "title": "Tecnologías",
+    "titleLine": "con las que trabajo",
+    "introduction": "Experiencia práctica construyendo sistemas de producción en todo el stack.",
+    "indexLabel": "Índice",
+    "years": "{{years}}+ años",
+    "percent": "por ciento",
+    "levels": {
+      "expert": "Experto",
+      "advanced": "Avanzado",
+      "intermediate": "Intermedio",
+      "basic": "Básico"
+    },
+    "items": {
+      "javascript": "Manipulación del DOM, patrones asíncronos, módulos ES y aplicaciones web interactivas.",
+      "typescript": "Tipado estático sobre JavaScript, interfaces, genéricos y mejor mantenimiento del código.",
+      "firebase": "Realtime Database, Firestore, Authentication, Hosting y Cloud Functions.",
+      "node": "APIs REST, lógica de servidor, middleware e integraciones de backend.",
+      "vue": "Composition API, Pinia, Vue Router y aplicaciones de una sola página reactivas.",
+      "react": "Hooks, composición de componentes, gestión de estado e interfaces modernas.",
+      "scss": "Variables, mixins, anidación y arquitecturas de hojas de estilo escalables.",
+      "bootstrap": "Sistema de grid responsive, clases utilitarias y UI basada en componentes.",
+      "tailwind": "Estilos utility-first, diseño responsive y prototipado rápido de interfaces.",
+      "github": "Flujos de control de versiones, pull requests y estrategias de ramas.",
+      "spring": "APIs REST, inyección de dependencias y servicios de backend en Java.",
+      "angular": "Arquitectura de componentes, servicios, observables RxJS y tooling de Angular CLI.",
+      "mongodb": "Modelado de documentos, operaciones CRUD e integración con Node.js.",
+      "postgresql": "Diseño de esquemas relacionales, consultas básicas, joins y gestión de bases de datos.",
+      "docker": "Contenerización de aplicaciones, Dockerfiles y entornos locales.",
+      "next": "Server-side rendering, static site generation, client-side rendering, incremental static regeneration, middleware, dynamic routes, Next API, Next Auth, Material UI, deployments, cookies, and more.",
+      "cursor": "Editor de código AI-powered, completado de código y generación de código."
+    }
+  },
+  "work": {
+    "chapterLabel": "Trabajo",
+    "title": "Selección",
+    "titleLine": "de proyectos",
+    "introduction": "Una mezcla de herramientas open source, trabajo para clientes y proyectos personales a lo largo de los años.",
+    "viewProject": "Ver proyecto",
+    "items": {
+      "superkompras": {
+        "title": "Superkompras - Ecommerce",
+        "description": "Una plataforma de eCommerce para una cadena de supermercados en México donde los clientes pueden explorar productos, añadirlos al carrito, completar compras en línea y elegir entre entrega a domicilio o recoger en tienda.",
+        "imageAlt": "Superkompras - Ecommerce"
+      },
+      "validation": {
+        "title": "Sistema de validación de datos de clientes SuperKompras",
+        "description": "Una plataforma de validación de datos para una cadena de supermercados en México que permite a clientes o personal de tienda verificar información personal mediante códigos por correo y SMS, recompensa con puntos de lealtad e incluye un dashboard para gestionar clientes y puntos.",
+        "imageAlt": "Sistema de validación de datos de clientes SuperKompras"
+      },
+      "pluma": {
+        "title": "Pluma Blog",
+        "description": "Una plataforma de gestión de blog que permite a varios usuarios con distintos roles crear, editar y publicar entradas, con un dashboard administrativo para gestionar contenido, usuarios y ajustes del blog.",
+        "imageAlt": "Pluma Blog"
+      },
+      "nexwear": {
+        "title": "Nexwear - Ecommerce",
+        "description": "Una demo de eCommerce para venta de ropa en línea que permite explorar productos, añadirlos al carrito y completar compras, con un dashboard de administración para gestionar productos, variantes, pedidos, usuarios y otras operaciones de la tienda.",
+        "imageAlt": "Nexwear - Ecommerce"
+      },
+      "flower": {
+        "title": "La Florería",
+        "description": "Sitio web para una florería enfocado en presentar sus arreglos, servicios y propuesta floral de una forma elegante y atractiva.",
+        "imageAlt": "La Florería"
+      },
+      "dental": {
+        "title": "Lumina",
+        "description": "Sitio web para una clínica dental que presenta sus tratamientos, servicios y equipo, transmitiendo confianza y profesionalismo.",
+        "imageAlt": "Lumina"
+      },
+      "valkirias": {
+        "title": "Valkirias",
+        "description": "Sitio web para un equipo de fútbol americano femenil creado para mostrar su identidad, historia, jugadoras y trayectoria dentro del deporte.",
+        "imageAlt": "Valkirias"
+      },
+      "rivon": {
+        "title": "Rivon Web Studio",
+        "description": "Sitio web para una agencia digital enfocada en mostrar sus servicios de diseño y desarrollo web, proyectos y propuesta creativa.",
+        "imageAlt": "Rivon Web Studio"
+      },
+      "signal": {
+        "title": "Signal",
+        "description": "Sitio web para un sello musical independiente que conecta artistas, lanzamientos y contenido editorial a través de una identidad experimental.",
+        "imageAlt": "Signal"
+      }
+    }
+  },
+  "learning": {
+    "chapterLabel": "Aprendizaje",
+    "title": "Cursos y",
+    "titleLine": "certificaciones",
+    "introduction": "Formación estructurada que he completado para reforzar mis habilidades en todo el stack.",
+    "indexLabel": "Archivo",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "design": "Diseño",
+      "devops": "DevOps",
+      "engineering": "Ingeniería"
+    }
+  },
+  "contact": {
+    "chapterLabel": "Contacto",
+    "copyright": "Aime Developer"
+  }
+}

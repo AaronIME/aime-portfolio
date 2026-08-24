@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "title": "Aarón Magallanes — Web Developer"
+  },
+  "nav": {
+    "brand": "AIME",
+    "experience": "Experience",
+    "projects": "Projects",
+    "courses": "Courses",
+    "contact": "Get in touch",
+    "language": "Language"
+  },
+  "hero": {
+    "ariaLabel": "Introduction",
+    "availability": "Available for work",
+    "role": "Web Developer",
+    "specialty": "Computing Systems Engineer",
+    "introduction": "I build clean, functional web experiences from frontend to backend. Currently deepening React and TypeScript, with Vue, Firebase, and Node.js in production.",
+    "contactLabel": "Get in touch",
+    "portraitAlt": "Portrait of Aarón Magallanes",
+    "links": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    }
+  },
+  "skills": {
+    "chapterLabel": "Skills & Experience",
+    "title": "Technologies",
+    "titleLine": "I work with",
+    "introduction": "Hands-on experience building production systems across the full stack.",
+    "indexLabel": "Index",
+    "years": "{{years}}+ years",
+    "percent": "percent",
+    "levels": {
+      "expert": "Expert",
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "basic": "Basic"
+    },
+    "items": {
+      "javascript": "DOM manipulation, async patterns, ES modules, and building interactive web applications.",
+      "typescript": "Static typing over JavaScript, interfaces, generics, and improved code maintainability.",
+      "firebase": "Realtime Database, Firestore, Authentication, Hosting, and Cloud Functions.",
+      "node": "REST APIs, server-side logic, middleware, and backend integrations.",
+      "vue": "Composition API, Pinia, Vue Router, and building reactive single-page applications.",
+      "react": "Hooks, component composition, state management, and building modern UIs.",
+      "scss": "Variables, mixins, nesting, and structuring scalable stylesheet architectures.",
+      "bootstrap": "Responsive grid system, utility classes, and component-based UI development.",
+      "tailwind": "Utility-first styling, responsive design, and rapid UI prototyping.",
+      "github": "Version control workflows, pull requests and branching strategies.",
+      "spring": "REST API development, dependency injection, and Java-based backend services.",
+      "angular": "Component architecture, services, RxJS observables, and Angular CLI tooling.",
+      "mongodb": "Document-based data modeling, CRUD operations, and integration with Node.js.",
+      "postgresql": "Relational schema design, basic queries, joins, and database management.",
+      "docker": "Containerizing applications, writing Dockerfiles, and running local environments.",
+      "next": "Server-side rendering, static site generation, client-side rendering, incremental static regeneration, middleware, dynamic routes, Next API, Next Auth, Material UI, deployments, cookies, and more.",
+      "cursor": "AI-powered code editor, code completion, and code generation."
+    }
+  },
+  "work": {
+    "chapterLabel": "Work",
+    "title": "Selected",
+    "titleLine": "projects",
+    "introduction": "A mix of open-source tools, client work, and side projects built over the years.",
+    "viewProject": "View project",
+    "items": {
+      "superkompras": {
+        "title": "Superkompras - Ecommerce",
+        "description": "An eCommerce platform for a supermarket chain in Mexico where customers can browse products, add items to their cart, complete purchases online, and choose between home delivery or in-store pickup.",
+        "imageAlt": "Superkompras - Ecommerce"
+      },
+      "validation": {
+        "title": "SuperKompras Client Data Validation System",
+        "description": "A customer data validation platform for a supermarket chain in Mexico that allows customers or in-store staff to verify personal information via email and SMS codes, rewards users with loyalty points, and includes a dashboard for managing customers and points.",
+        "imageAlt": "SuperKompras Client Data Validation System"
+      },
+      "pluma": {
+        "title": "Pluma Blog",
+        "description": "A blog management platform that allows multiple users with different roles to create, edit, and publish posts, featuring an administrative dashboard for managing content, users, and blog settings.",
+        "imageAlt": "Pluma Blog"
+      },
+      "nexwear": {
+        "title": "Nexwear - Ecommerce",
+        "description": "An eCommerce demo platform for online clothing sales that allows customers to browse products, add items to their cart, and complete purchases, while providing an admin dashboard to manage products, variants, orders, users, and other store operations.",
+        "imageAlt": "Nexwear - Ecommerce"
+      },
+      "flower": {
+        "title": "La Florería",
+        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "imageAlt": "La Florería"
+      },
+      "dental": {
+        "title": "Lumina",
+        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "imageAlt": "Lumina"
+      },
+      "valkirias": {
+        "title": "Valkirias",
+        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "imageAlt": "Valkirias"
+      },
+      "rivon": {
+        "title": "Rivon Web Studio",
+        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "imageAlt": "Rivon Web Studio"
+      },
+      "signal": {
+        "title": "Signal Label",
+        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "imageAlt": "Signal Label"
+      }
+    }
+  },
+  "learning": {
+    "chapterLabel": "Learning",
+    "title": "Courses &",
+    "titleLine": "certifications",
+    "introduction": "Structured learning I've completed to sharpen my skills across the stack.",
+    "indexLabel": "Archive",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "design": "Design",
+      "devops": "DevOps",
+      "engineering": "Engineering"
+    }
+  },
+  "contact": {
+    "chapterLabel": "Contact",
+    "copyright": "Aime Developer"
+  }
+}

@@ -1,0 +1,39 @@
+---
+description: Art direction — paper and deep blue, inspired by Nova Persona density without copying it.
+alwaysApply: true
+---
+
+# Art direction
+
+The visual north star is an editorial personal portfolio with **composed objects on a warm field**, not a sparse magazine spread and not a SaaS landing.
+
+A reference exists (Nova Persona / Webflow personal template). Use it as **structural inspiration only**. Never copy it.
+
+## From the reference, take
+
+- A denser, more designed composition: type + framed portrait + credentials as distinct pieces
+- Media as **mounted objects** (rounded frame, inner padding, finite size)
+- Pill CTAs with a circular arrow
+- Small circular icon buttons for social links
+- Status sitting on the portrait frame
+- Project previews as **modest plates** that can hold real website screenshots (`object-top`, ~16/10), not full-bleed hero crops
+- Asymmetry through offset pairing, not through giant empty canvas
+- Strong type contrast (large identity vs small metadata)
+
+## Do not take from the reference
+
+- Lime / neon green (ours is deep blue)
+- Fake stats, awards, client counts, “trusted by” logos
+- Generic pill-card grids, glass, glow, or template chrome
+- Copying layout 1:1
+
+## Ours
+
+- Paper `#F3F0EA` / surface slightly lighter for floating frames
+- Ink `#121820` / Deep blue `#0C2D52`
+- Fraunces for identity, Outfit for UI, IBM Plex Mono for metadata
+- Real content only
+
+## Images
+
+Project images must stay **screenshot-friendly**: contained width, 16/10 or similar, rounded inner crop, `object-cover object-top`. Never full-viewport photography plates for Work.

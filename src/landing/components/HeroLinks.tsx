@@ -1,37 +1,43 @@
-import { Mail, FolderGit, Briefcase } from 'lucide-react'
-import { cn } from '../../lib/utils'
+import { Briefcase, FolderGit, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { cn } from "../../lib/utils";
+import type { HeroLinkItem } from "../constants/hero";
 
-interface LinkItem {
-  label: string
-  href: string
-  icon: React.ReactNode
+interface Props {
+  links: HeroLinkItem[];
+  className?: string;
 }
 
-const links: LinkItem[] = [
-  { label: 'GitHub', href: 'https://github.com/AaronIME', icon: <FolderGit size={16} /> },
-  { label: 'LinkedIn', href: 'www.linkedin.com/in/aarón-magallanes-0482a8339', icon: <Briefcase size={16} /> },
-  { label: 'Email', href: 'mailto:aaron.isaac.echavarria@gmail.com', icon: <Mail size={16} /> },
-]
+const linkIcons = {
+  github: FolderGit,
+  linkedin: Briefcase,
+  email: Mail,
+} as const;
 
-interface HeroLinksProps {
-  className?: string
-}
+export const HeroLinks = ({ links, className }: Props) => {
+  const { t } = useTranslation();
 
-export const HeroLinks = ({ className }: HeroLinksProps) => {
   return (
-    <div className={cn('flex items-center gap-2 flex-wrap', className)}>
-      {links.map((link) => (
-        <a
-          key={link.label}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-neutral-400 border border-white/8 bg-white/3 hover:bg-white/6 hover:text-neutral-200 hover:border-white/15 transition-all duration-150"
-        >
-          {link.icon}
-          {link.label}
-        </a>
-      ))}
-    </div>
-  )
-}
+    <ul className={cn("flex items-center gap-2.5", className)}>
+      {links.map((link) => {
+        const Icon = linkIcons[link.id];
+        const isMail = link.href.startsWith("mailto:");
+        const label = t(`hero.links.${link.id}`);
+
+        return (
+          <li key={link.id}>
+            <a
+              href={link.href}
+              target={isMail ? undefined : "_blank"}
+              rel={isMail ? undefined : "noopener noreferrer"}
+              aria-label={label}
+              className="flex size-10 items-center justify-center rounded-full border border-line bg-surface text-ink-soft transition-colors duration-200 hover:border-blue-deep hover:text-blue-deep"
+            >
+              <Icon size={16} strokeWidth={1.75} />
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
