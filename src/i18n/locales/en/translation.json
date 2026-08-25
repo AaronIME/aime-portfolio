@@ -55,7 +55,8 @@
       "postgresql": "Relational schema design, basic queries, joins, and database management.",
       "docker": "Containerizing applications, writing Dockerfiles, and running local environments.",
       "next": "Server-side rendering, static site generation, client-side rendering, incremental static regeneration, middleware, dynamic routes, Next API, Next Auth, Material UI, deployments, cookies, and more.",
-      "cursor": "AI-powered code editor, code completion, and code generation."
+      "cursor": "AI-powered code editor, code completion, and code generation.",
+      "jest": "Unit and integration tests, mocks, snapshots, and coverage reports for JavaScript."
     }
   },
   "work": {
@@ -87,27 +88,27 @@
       },
       "flower": {
         "title": "La Florería",
-        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "description": "A website for a flower shop focused on presenting its arrangements, services, and floral offering in an elegant, inviting way.",
         "imageAlt": "La Florería"
       },
       "dental": {
         "title": "Lumina",
-        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "description": "A website for a dental clinic that presents its treatments, services, and team, conveying trust and professionalism.",
         "imageAlt": "Lumina"
       },
       "valkirias": {
         "title": "Valkirias",
-        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "description": "A website for a women's American football team created to showcase its identity, history, players, and journey in the sport.",
         "imageAlt": "Valkirias"
       },
       "rivon": {
         "title": "Rivon Web Studio",
-        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "description": "A website for a digital agency focused on showcasing its web design and development services, projects, and creative offering.",
         "imageAlt": "Rivon Web Studio"
       },
       "signal": {
         "title": "Signal Label",
-        "description": "Placeholder copy. Replace the title, description, and tags when the project is ready.",
+        "description": "A website for an independent music label that connects artists, releases, and editorial content through an experimental identity.",
         "imageAlt": "Signal Label"
       }
     }
@@ -124,6 +125,36 @@
       "design": "Design",
       "devops": "DevOps",
       "engineering": "Engineering"
+    },
+    "items": {
+      "nodejs": {
+        "name": "NodeJS: From Zero to Expert",
+        "description": "Clean Architecture, DDD, webhooks, WebSockets, scheduled tasks, deployments, TypeScript, Edge, testing, and more."
+      },
+      "react": {
+        "name": "React: From Zero to Expert",
+        "description": "Context API, MERN, Hooks, Firestore, JWT, testing, authentication, deployments, AI, CRUD, logs, MUI, multiple routers, and more."
+      },
+      "spring": {
+        "name": "Spring Framework & Spring Boot from Zero to Expert",
+        "description": "Web apps with Spring Framework and Spring Boot: AOP, JPA, Security, JWT, REST, AWS, Thymeleaf, Angular, and React."
+      },
+      "angular": {
+        "name": "Angular: From Zero to Expert",
+        "description": "Signals, components, services, zoneless, maps, authentication, deployments, file uploads, Git, GitHub, and more."
+      },
+      "vue": {
+        "name": "Vue JS 3 + Nuxt 4 with TypeScript — Full-Stack + MEVN",
+        "description": "Vue.js 3, Composition API, Options API, Vuex, Pinia, protected routes, Vue CLI, Nuxt.js, Node, Express, and MongoDB."
+      },
+      "css": {
+        "name": "Complete CSS Guide — Flexbox, CSS Grid, SASS +20 projects",
+        "description": "Flexbox, CSS Grid, custom properties, SASS, mixins, Gulp workflows, animations, RWD, and more."
+      },
+      "nextjs": {
+        "name": "Next.js: The React Framework for Production",
+        "description": "SSR, SSG, CSR, ISR, middleware, dynamic routes, Next API, Next Auth, Material UI, deployments, cookies, and more."
+      }
     }
   },
   "contact": {

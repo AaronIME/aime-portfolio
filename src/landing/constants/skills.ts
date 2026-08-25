@@ -17,7 +17,8 @@ export type TechId =
   | "postgresql"
   | "docker"
   | "next"
-  | "cursor";
+  | "cursor"
+  | "jest";
 
 export interface TechItem {
   id: TechId;
@@ -158,6 +159,13 @@ export const technologies: TechItem[] = [
     years: 1,
     level: "basic",
     icon: "🐳",
+  },
+  {
+    id: "jest",
+    name: "Jest",
+    years: 0.5,
+    level: "basic",
+    icon: "🃏",
   },
 ];
 
