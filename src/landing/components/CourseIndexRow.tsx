@@ -38,6 +38,8 @@ export const CourseIndexRow = ({
   onEnter,
 }: Props) => {
   const { t } = useTranslation();
+  const name = t(`learning.items.${course.id}.name`);
+  const description = t(`learning.items.${course.id}.description`);
   const categoryLabel = t(`learning.categories.${course.category}`);
 
   return (
@@ -50,7 +52,7 @@ export const CourseIndexRow = ({
         target="_blank"
         rel="noopener noreferrer"
         className="block py-6 outline-none md:py-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-deep"
-        aria-label={`${course.name}, ${course.platform}, ${categoryLabel}. ${course.description}`}
+        aria-label={`${name}, ${course.platform}, ${categoryLabel}. ${description}`}
       >
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-10">
           <span className="font-mono text-[10px] tracking-[0.16em] text-ink-muted md:w-10 md:shrink-0 md:pt-1.5 md:text-[11px]">
@@ -60,7 +62,7 @@ export const CourseIndexRow = ({
           <div className="min-w-0 flex-1">
             <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-8">
               <h3 className="max-w-2xl font-display text-lg font-medium leading-snug tracking-[-0.03em] text-ink md:text-xl">
-                {course.name}
+                {name}
               </h3>
 
               <p className="shrink-0 font-mono text-[11px] tracking-[0.14em] text-ink-muted uppercase md:pt-1.5">
@@ -73,7 +75,7 @@ export const CourseIndexRow = ({
             </p>
 
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft line-clamp-2">
-              {course.description}
+              {description}
             </p>
           </div>
         </div>

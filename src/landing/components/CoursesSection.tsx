@@ -21,7 +21,7 @@ export const CoursesSection = () => {
   const listRef = useRef<HTMLOListElement>(null);
   const reducedMotion = useReducedMotion() ?? false;
   const isInView = useInView(listRef, { once: true, amount: 0.12 });
-  const [activeName, setActiveName] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   const { chapter } = learningContent;
 
@@ -86,17 +86,17 @@ export const CoursesSection = () => {
             initial={reducedMotion ? "show" : "hidden"}
             animate={reducedMotion || isInView ? "show" : "hidden"}
             variants={listVariants}
-            onMouseLeave={() => setActiveName(null)}
+            onMouseLeave={() => setActiveId(null)}
             className="border-t border-line"
           >
             {courses.map((course, index) => (
               <CourseIndexRow
-                key={course.name}
+                key={course.id}
                 index={index}
                 course={course}
-                isActive={activeName === course.name}
+                isActive={activeId === course.id}
                 reducedMotion={reducedMotion}
-                onEnter={() => setActiveName(course.name)}
+                onEnter={() => setActiveId(course.id)}
               />
             ))}
           </motion.ol>
