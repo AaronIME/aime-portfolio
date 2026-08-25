@@ -54,8 +54,9 @@
       "mongodb": "Modelado de documentos, operaciones CRUD e integración con Node.js.",
       "postgresql": "Diseño de esquemas relacionales, consultas básicas, joins y gestión de bases de datos.",
       "docker": "Contenerización de aplicaciones, Dockerfiles y entornos locales.",
-      "next": "Server-side rendering, static site generation, client-side rendering, incremental static regeneration, middleware, dynamic routes, Next API, Next Auth, Material UI, deployments, cookies, and more.",
-      "cursor": "Editor de código AI-powered, completado de código y generación de código."
+      "next": "Renderizado del servidor, generación de sitios estáticos, renderizado del cliente, regeneración estática incremental, middleware, rutas dinámicas, Next API, Next Auth, Material UI, despliegues, cookies y más.",
+      "cursor": "Editor de código con IA, autocompletado y generación de código.",
+      "jest": "Pruebas unitarias y de integración, mocks, snapshots e informes de cobertura en JavaScript."
     }
   },
   "work": {
@@ -124,6 +125,36 @@
       "design": "Diseño",
       "devops": "DevOps",
       "engineering": "Ingeniería"
+    },
+    "items": {
+      "nodejs": {
+        "name": "NodeJS: De cero a experto",
+        "description": "Clean Architecture, DDD, WebHooks, WebSockets, tareas automáticas, despliegues, TypeScript, Edge, testing y más."
+      },
+      "react": {
+        "name": "React: De cero a experto",
+        "description": "Context API, MERN, Hooks, Firestore, JWT, testing, autenticaciones, despliegues, AI, CRUD, logs, MUI, múltiples routers y más."
+      },
+      "spring": {
+        "name": "Spring Framework & Spring Boot desde cero a experto",
+        "description": "Aplicaciones web con Spring Framework y Spring Boot: AOP, JPA, Security, JWT, REST, AWS, Thymeleaf, Angular y React."
+      },
+      "angular": {
+        "name": "Angular: De cero a experto",
+        "description": "Signals, componentes, servicios, zoneless, mapas, autenticación, despliegues, carga de archivos, Git, GitHub y más."
+      },
+      "vue": {
+        "name": "Vue JS 3 + Nuxt 4 con Typescript - Curso Full-Stack + MEVN",
+        "description": "Vue.js 3, Composition API, Options API, Vuex, Pinia, rutas protegidas, Vue CLI, Nuxt.js, Node, Express y MongoDB."
+      },
+      "css": {
+        "name": "CSS La Guía Completa - Flexbox, CSS Grid, SASS +20 proyectos",
+        "description": "Flexbox, CSS Grid, custom properties, SASS, mixins, flujos con Gulp, animaciones, RWD y más."
+      },
+      "nextjs": {
+        "name": "Next.js: El framework de React para producción",
+        "description": "SSR, SSG, CSR, ISR, middlewares, rutas dinámicas, Next API, Next Auth, Material UI, despliegues, cookies y más."
+      }
     }
   },
   "contact": {
